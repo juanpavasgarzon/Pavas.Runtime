@@ -4,12 +4,13 @@ using Pavas.Patterns.Context.Contracts;
 namespace Pavas.Runtime.ApplicationContext.DependencyInjection;
 
 internal sealed class ApplicationContextHostedService(
-    IContextFactory<ApplicationContext> contextFactory
+    IContextFactory<ApplicationContext> contextFactory,
+    ApplicationContext? initialContext = null
 ) : IHostedService
 {
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        contextFactory.Construct(new ApplicationContext());
+        contextFactory.Construct(initialContext ?? new ApplicationContext());
         return Task.CompletedTask;
     }
 

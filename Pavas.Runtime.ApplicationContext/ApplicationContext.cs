@@ -20,8 +20,6 @@ public sealed class ApplicationContext
     public List<LanguageCode> SupportedLanguages { get; set; } = [LanguageCode.EnUs];
     public DateTimeFormatInfo DateTimeFormat { get; set; } = new();
     public DateTime DeploymentDate { get; set; } = DateTime.UtcNow;
-    public Version SourceCodeVersion { get; set; } = new("v1.0");
-    public ApplicationEnvironment DeploymentEnvironment { get; set; } = ApplicationEnvironment.Production;
     public Dictionary<string, object> SharedCache { get; set; } = new();
     public Dictionary<string, object> GlobalObjects { get; set; } = new();
 }
