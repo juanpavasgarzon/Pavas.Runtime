@@ -11,7 +11,7 @@ public static class Extensions
         serviceCollection.AddContext<IdentityContext>(ServiceLifetime.Scoped);
     }
 
-    public static void AddIdentityMiddleware(this IApplicationBuilder app)
+    public static void AddIdentityContextMiddleware(this IApplicationBuilder app)
     {
         app.UseMiddleware<IdentityContextMiddleware>();
     }
