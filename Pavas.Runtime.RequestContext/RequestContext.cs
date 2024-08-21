@@ -1,5 +1,5 @@
 ﻿namespace Pavas.Runtime.RequestContext;
 
-public class RequestContext
+public sealed class RequestContext
 {
 }

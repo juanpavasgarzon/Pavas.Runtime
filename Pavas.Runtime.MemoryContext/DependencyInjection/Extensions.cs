@@ -8,5 +8,6 @@ public static class Extensions
     public static void AddMemoryContext(IServiceCollection serviceCollection)
     {
         serviceCollection.AddContext<MemoryContext>(ServiceLifetime.Singleton);
+        serviceCollection.AddHostedService<MemoryContextHostedService>();
     }
 }

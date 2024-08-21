@@ -8,5 +8,6 @@ public static class Extensions
     public static void AddApplicationContext(IServiceCollection serviceCollection)
     {
         serviceCollection.AddContext<ApplicationContext>(ServiceLifetime.Singleton);
+        serviceCollection.AddHostedService<ApplicationContextHostedService>();
     }
 }

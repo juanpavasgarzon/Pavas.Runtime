@@ -1,5 +1,5 @@
 ﻿namespace Pavas.Runtime.TenantContext;
 
-public class TenantContext
+public sealed class TenantContext
 {
 }

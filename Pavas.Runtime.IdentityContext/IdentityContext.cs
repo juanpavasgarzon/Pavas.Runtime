@@ -1,5 +1,5 @@
 ﻿namespace Pavas.Runtime.IdentityContext;
 
-public class IdentityContext
+public sealed class IdentityContext
 {
 }
