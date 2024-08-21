@@ -5,7 +5,7 @@ namespace Pavas.Runtime.RequestContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddApplicationContext(IServiceCollection serviceCollection)
+    public static void AddApplicationContext(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddContext<RequestContext>(ServiceLifetime.Scoped);
     }

@@ -5,7 +5,7 @@ namespace Pavas.Runtime.TenantContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddTenantContext(IServiceCollection serviceCollection)
+    public static void AddTenantContext(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddContext<TenantContext>(ServiceLifetime.Scoped);
     }

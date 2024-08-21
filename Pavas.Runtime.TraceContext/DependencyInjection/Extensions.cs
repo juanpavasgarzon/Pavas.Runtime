@@ -5,7 +5,7 @@ namespace Pavas.Runtime.TraceContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddTraceContext(IServiceCollection serviceCollection)
+    public static void AddTraceContext(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddContext<TraceContext>(ServiceLifetime.Scoped);
     }
