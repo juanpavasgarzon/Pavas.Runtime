@@ -8,7 +8,7 @@ public static class Extensions
 {
     public static void AddTraceContext(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddContext<TraceContext>(ServiceLifetime.Scoped);
+        serviceCollection.AddScopedContext<TraceContext>();
     }
 
     public static void AddTraceContextMiddleware(this IApplicationBuilder app)

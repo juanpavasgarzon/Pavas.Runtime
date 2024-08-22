@@ -8,7 +8,7 @@ public static class Extensions
 {
     public static void AddTenantContext(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddContext<TenantContext>(ServiceLifetime.Scoped);
+        serviceCollection.AddScopedContext<TenantContext>();
     }
 
     public static void AddIdentityContextMiddleware(this IApplicationBuilder app, List<Tenant> tenants)

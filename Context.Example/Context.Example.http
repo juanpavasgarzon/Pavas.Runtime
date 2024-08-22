@@ -1,0 +1,6 @@
+@Context.Example_HostAddress = http://localhost:5165
+
+GET {{Context.Example_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

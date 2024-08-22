@@ -8,7 +8,7 @@ public static class Extensions
 {
     public static void AddIdentityContext(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddContext<IdentityContext>(ServiceLifetime.Scoped);
+        serviceCollection.AddScopedContext<IdentityContext>();
     }
 
     public static void AddIdentityContextMiddleware(this IApplicationBuilder app)

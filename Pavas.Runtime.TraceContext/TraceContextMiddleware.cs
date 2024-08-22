@@ -3,9 +3,9 @@ using Pavas.Patterns.Context.Contracts;
 
 namespace Pavas.Runtime.TraceContext;
 
-public sealed class TraceContextMiddleware(IContextFactory<TraceContext> contextFactory) : IMiddleware
+public sealed class TraceContextMiddleware(RequestDelegate next)
 {
-    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    public async Task Invoke(HttpContext context, IContextFactory<TraceContext> contextFactory)
     {
         var traceContext = CreateTraceContext(context);
         contextFactory.Construct(traceContext);

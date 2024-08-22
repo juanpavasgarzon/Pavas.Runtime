@@ -4,9 +4,9 @@ using Pavas.Patterns.Context.Contracts;
 
 namespace Pavas.Runtime.IdentityContext;
 
-public sealed class IdentityContextMiddleware(IContextFactory<IdentityContext> contextFactory) : IMiddleware
+public sealed class IdentityContextMiddleware(RequestDelegate next)
 {
-    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    public async Task Invoke(HttpContext context, IContextFactory<IdentityContext> contextFactory)
     {
         var identityContext = CreateIdentityContext(context);
         contextFactory.Construct(identityContext);

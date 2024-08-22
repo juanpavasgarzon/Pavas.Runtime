@@ -6,11 +6,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavas.Runtime.TraceContext"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavas.Runtime.TenantContext", "Pavas.Runtime.TenantContext\Pavas.Runtime.TenantContext.csproj", "{C8A975BA-29AE-49D7-AC3E-85482626D3D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavas.Runtime.RequestContext", "Pavas.Runtime.RequestContext\Pavas.Runtime.RequestContext.csproj", "{06F4C89E-F2E0-4CBC-883B-29E938293084}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavas.Runtime.ApplicationContext", "Pavas.Runtime.ApplicationContext\Pavas.Runtime.ApplicationContext.csproj", "{D19132F8-A169-4B69-8274-15DF0D5CAD87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavas.Runtime.MemoryContext", "Pavas.Runtime.MemoryContext\Pavas.Runtime.MemoryContext.csproj", "{D3BD2DAD-2C13-41A1-80C2-FE1C3CEC90C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{DCA7E194-7BDA-42DD-BB45-AB0928293F68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Context.Example", "Context.Example\Context.Example.csproj", "{71F599DE-A774-4A89-9ED4-5C07D359DBD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +32,6 @@ Global
 		{C8A975BA-29AE-49D7-AC3E-85482626D3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8A975BA-29AE-49D7-AC3E-85482626D3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8A975BA-29AE-49D7-AC3E-85482626D3D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06F4C89E-F2E0-4CBC-883B-29E938293084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06F4C89E-F2E0-4CBC-883B-29E938293084}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06F4C89E-F2E0-4CBC-883B-29E938293084}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06F4C89E-F2E0-4CBC-883B-29E938293084}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D19132F8-A169-4B69-8274-15DF0D5CAD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D19132F8-A169-4B69-8274-15DF0D5CAD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D19132F8-A169-4B69-8274-15DF0D5CAD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +40,12 @@ Global
 		{D3BD2DAD-2C13-41A1-80C2-FE1C3CEC90C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3BD2DAD-2C13-41A1-80C2-FE1C3CEC90C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3BD2DAD-2C13-41A1-80C2-FE1C3CEC90C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F599DE-A774-4A89-9ED4-5C07D359DBD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F599DE-A774-4A89-9ED4-5C07D359DBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F599DE-A774-4A89-9ED4-5C07D359DBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F599DE-A774-4A89-9ED4-5C07D359DBD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71F599DE-A774-4A89-9ED4-5C07D359DBD7} = {DCA7E194-7BDA-42DD-BB45-AB0928293F68}
 	EndGlobalSection
 EndGlobal
