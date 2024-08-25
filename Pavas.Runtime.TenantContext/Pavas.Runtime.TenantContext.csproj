@@ -1,14 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Version>1.0.0</Version>
+        <Company>Pavas</Company>
+        <Copyright>© 2024 Pavas.</Copyright>
+        <Product>Pavas Runtime</Product>
+        <Authors>Pavas</Authors>
+        <PackageId>Pavas.Runtime.TenantContext</PackageId>
+        <PackageIcon>Assets/pavas-icon.png</PackageIcon>
+        <PackageTags>TenantContext;Multi-tenancy;Context;Provider;Accessor;Factory</PackageTags>
+        <PackageProjectUrl>https://github.com/juanpavasgarzon/Pavas.Runtime/tree/master/Pavas.Runtime.TenantContext</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/juanpavasgarzon/Pavas.Runtime/tree/master/Pavas.Runtime.TenantContext</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <Description>Enables multi-tenancy support in applications by managing tenant-specific data and configurations.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.34" />
-      <PackageReference Include="Pavas.Patterns.Context" Version="1.0.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.34"/>
+        <PackageReference Include="Pavas.Patterns.Context" Version="1.0.4"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="README.md" Pack="true" PackagePath="."/>
+        <None Update="Assets/pavas-icon.png" Pack="true" PackagePath="."/>
     </ItemGroup>
 
 </Project>
