@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Pavas.Patterns.Context.Contracts;
+using Pavas.Runtime.TenantContext.Exceptions;
 
 namespace Pavas.Runtime.TenantContext;
 
@@ -15,14 +16,21 @@ public sealed class TenantContextMiddleware(RequestDelegate next)
 
     private static TenantContext CreateTenantContext(IHeaderDictionary headers, List<Tenant> tenants)
     {
-        _ = headers.TryGetValue("X-Tenant-ID", out var tenantId);
+        var defaultTenant = tenants.Find(tenant => tenant.IsDefault);
+        if (!headers.TryGetValue("X-Tenant-ID", out var tenantId) && defaultTenant is null)
+            throw new NotFoundException("X-Tenant-ID Is Required");
+
         var tenant = tenants.Find(item => item.Id == tenantId.FirstOrDefault());
+        if (tenant is null && tenantId.Count != 0)
+            throw new NotFoundException($"Tenant {tenantId} not found");
+
+        tenant ??= defaultTenant!;
 
         return new TenantContext
         {
-            TenantId = tenant?.Id ?? string.Empty,
-            TenantName = tenant?.Name ?? string.Empty,
-            Connection = tenant?.Connection ?? string.Empty,
+            TenantId = tenant.Id,
+            TenantName = tenant.Name,
+            Connection = tenant.Connection,
         };
     }
 }

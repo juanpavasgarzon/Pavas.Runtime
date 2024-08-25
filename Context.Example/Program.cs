@@ -1,13 +1,62 @@
+using Context.Example.Endpoints;
+using Pavas.Runtime.ApplicationContext;
+using Pavas.Runtime.ApplicationContext.DependencyInjection;
+using Pavas.Runtime.MemoryContext.DependencyInjection;
+using Pavas.Runtime.TenantContext;
+using Pavas.Runtime.TenantContext.DependencyInjection;
+using Pavas.Runtime.TraceContext.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+var applicationContext = new ApplicationContext
+{
+    ApplicationName = "Test",
+    ApplicationVersion = new Version("1.0.0"),
+    BuildMode = ApplicationBuildMode.Release,
+    Environment = ApplicationEnvironment.Debug,
+    BaseUrl = "api/v1"
+};
+
+List<Tenant> tenants =
+[
+    new Tenant
+    {
+        Id = "Develop",
+        Name = "Develop",
+        Connection = "MyConnectionDevelop",
+        IsDefault = true
+    },
+    new Tenant
+    {
+        Id = "ProductionTenant",
+        Name = "ProductionTenant",
+        Connection = "MyConnectionToProduction"
+    },
+    new Tenant
+    {
+        Id = "TestTenant",
+        Name = "TestTenant",
+        Connection = "MyConnectionToTest"
+    }
+];
+
+string[] repositories = ["application"];
+
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationContext(applicationContext);
+builder.Services.AddMemoryContext(repositories);
+builder.Services.AddTraceContext();
+builder.Services.AddTenantContext(tenants);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.MapApplicationContextEndpoint();
+app.MapMemoryContextEndpoint();
+app.MapTenantContextEndpoint();
+app.MapTraceContextEndpoint();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -15,30 +64,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
-
+app.UseTenantContextMiddleware();
+app.UseTraceContextMiddleware();
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

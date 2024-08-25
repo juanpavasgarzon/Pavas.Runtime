@@ -6,15 +6,19 @@ internal sealed class MemoryRepository : IMemoryRepository
 {
     private readonly Dictionary<object, object?> _data = new();
 
+    public MemoryRepository()
+    {
+    }
+
+    public MemoryRepository(Dictionary<object, object?> data)
+    {
+        _data = data;
+    }
+
     public TValue? Get<TKey, TValue>(TKey id) where TKey : notnull
     {
         _data.TryGetValue(id, out var value);
         return (TValue?)value;
-    }
-
-    public List<TValue> Get<TValue>()
-    {
-        return _data.Values.Cast<TValue>().ToList();
     }
 
     public void Add<TKey, TValue>(TKey id, TValue value) where TKey : notnull where TValue : notnull

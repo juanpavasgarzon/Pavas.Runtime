@@ -6,12 +6,12 @@ namespace Pavas.Runtime.IdentityContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddIdentityContext(this IServiceCollection serviceCollection)
+    public static void AddIdentityContext(this IServiceCollection services)
     {
-        serviceCollection.AddScopedContext<IdentityContext>();
+        services.AddScopedContext<IdentityContext>();
     }
 
-    public static void AddIdentityContextMiddleware(this IApplicationBuilder app)
+    public static void UseIdentityContextMiddleware(this IApplicationBuilder app)
     {
         app.UseMiddleware<IdentityContextMiddleware>();
     }

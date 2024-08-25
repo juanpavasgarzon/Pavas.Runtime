@@ -5,24 +5,24 @@ namespace Pavas.Runtime.ApplicationContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddApplicationContext(this IServiceCollection serviceCollection)
+    public static void AddApplicationContext(this IServiceCollection services)
     {
-        serviceCollection.AddSingletonContext(new ApplicationContext());
+        services.AddSingletonContext(new ApplicationContext());
     }
 
     public static void AddApplicationContext(
-        this IServiceCollection serviceCollection,
+        this IServiceCollection services,
         ApplicationContext initialContext
     )
     {
-        serviceCollection.AddSingletonContext(initialContext);
+        services.AddSingletonContext(initialContext);
     }
 
     public static void AddApplicationContext(
-        this IServiceCollection serviceCollection,
+        this IServiceCollection services,
         Func<IServiceProvider, ApplicationContext> initializer
     )
     {
-        serviceCollection.AddSingletonContext(initializer);
+        services.AddSingletonContext(initializer);
     }
 }

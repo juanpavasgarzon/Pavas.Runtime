@@ -1,0 +1,31 @@
+@Context.Example_HostAddress = http://localhost:5165
+
+###
+
+GET {{Context.Example_HostAddress}}/application-context
+Accept: application/json
+
+###
+
+GET {{Context.Example_HostAddress}}/identity-context
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU1MzQzNCwiY291bnRyeSI6IlVTIiwiZ2VuZGVyIjoiTWFsZSIsInBvc3RhbGNvZGUiOiIxMjM0NSIsInJvbGUiOlsiQWRtaW4iLCJVc2VyIl0sImN1c3RvbS1jbGFpbS10eXBlIjoiY3VzdG9tLWNsYWltLXZhbHVlIiwibmJmIjoxNzI0NTUzNDM0LCJleHAiOjE3MjQ2Mzk4MzQsImlzcyI6ImRvdG5ldC11c2VyLWp3dCJ9.Ng8jbe6HqMN5klSMJKfUnNTPUQAV-MB7asf8K5nXv_U
+
+###
+
+GET {{Context.Example_HostAddress}}/memory-context
+Accept: application/json
+
+###
+
+GET {{Context.Example_HostAddress}}/tenant-context
+Accept: application/json
+X-Tenant-ID: Develop
+
+###
+
+GET {{Context.Example_HostAddress}}/trace-context
+Accept: application/json
+X-Correlation-ID: Pavas
+###
+

@@ -6,12 +6,12 @@ namespace Pavas.Runtime.TraceContext.DependencyInjection;
 
 public static class Extensions
 {
-    public static void AddTraceContext(this IServiceCollection serviceCollection)
+    public static void AddTraceContext(this IServiceCollection services)
     {
-        serviceCollection.AddScopedContext<TraceContext>();
+        services.AddScopedContext<TraceContext>();
     }
 
-    public static void AddTraceContextMiddleware(this IApplicationBuilder app)
+    public static void UseTraceContextMiddleware(this IApplicationBuilder app)
     {
         app.UseMiddleware<TraceContextMiddleware>();
     }
