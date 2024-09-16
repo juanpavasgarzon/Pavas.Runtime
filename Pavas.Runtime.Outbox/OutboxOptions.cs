@@ -1,9 +1,7 @@
 using Pavas.Runtime.Outbox.Contracts;
 
 public class OutboxOptions : IOutboxOptions
-{
-    public RabbitMqOptions RabbitMq { get; set; }
-    
+{    
     public int DelayBetweenEvents { get; private set; }
 
     public int DelayBetweenBatches { get; private set; }
